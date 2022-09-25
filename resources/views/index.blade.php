@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     <body/>
-       
+        <div class="register">
+            <a href="/register">家計簿を付ける</a>
+        </div>
     </body>
 </html>

@@ -9,6 +9,7 @@
     <body/>
          <div class="items">
             <h3>名目</h3>
+            <input type="text" placeholder="名目"/>
         </div>
         <div class="bigcategory">
             <h3>大カテゴリ</h3>
@@ -17,11 +18,14 @@
         </div>
         <div class="price">
             <h3>値段</h3>
+            <input type="text" placeholder="値段">
         <div class="shop">
             <h3>購入店舗</h3>
+            <input type="text" placeholder="購入店舗">
         </div>
         <div class="method">
             <h3>支払方法</h3>
         </div>
+        <div class="back">[<a href="/">トップに戻る</a>]</div>
     </body>
 </html>
