@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class FinanceController extends Controller
 {
-    //
+    public function register()
+    {
+        return view('register');
+    }
 }
