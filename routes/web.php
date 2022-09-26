@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function() {
-    return view('index');
-});
+Route::get('/', "FinanceController@index");
 Route::get('/register', 'FinanceController@register');
+Route::get('/register/register_income', 'FinanceController@register_income');
+Route::get('/register/register_expenditure', 'FinanceController@register_expenditure');
