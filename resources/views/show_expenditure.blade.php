@@ -11,6 +11,23 @@
        
     <body>
         <h3>支出</h3>
+        <div class='expenditure_list'>
+            @foreach ($expenditures as $expenditure)
+                <div class="expenditure">
+                    <p class="id">No.{{ $expenditure->id }}</p>
+                    <p class="date">日付：{{ $expenditure->year }}年{{ $expenditure->month }}月{{ $expenditure->day }}日</p>
+                    <p class="nominal">名目：{{ $expenditure->nominal }}</p>
+                    <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory }}</p>
+                    <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory }}</p>
+                    <p class="money">金額：{{ $expenditure->money }}円</p>
+                    <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
+                    <p class="method">支払方法：{{ $expenditure->method }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div class="paginate">
+            {{ $expenditures->links() }}
+        </div>
         <div class="back">[<a href="/show">戻る</a>]</div>
         <div class="backtop">[<a href="/">トップに戻る</a>]</div>
     </body>
