@@ -19,7 +19,8 @@ class CreateExpendituresTable extends Migration
             $table->tinyInteger('month')->unsigned();
             $table->tinyInteger('day')->unsigned();
             $table->string('nominal', 20);
-            $table->string('category', 20);
+            $table->string('bigcategory', 20);
+            $table->string('smallcategory', 20);
             $table->bigInteger('money')->unsigned();
             $table->string('shop', 20);
             $table->string('method', 20);

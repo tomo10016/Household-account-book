@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Incomes extends Model
+class Expenditure extends Model
 {
     public function getPaginateByLimit(int $limit_count = 5)
     {
