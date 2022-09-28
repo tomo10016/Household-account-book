@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Income;
+use App\Incomes;
 use Illuminate\Http\Request;
 
 class FinanceController extends Controller
@@ -32,9 +32,9 @@ class FinanceController extends Controller
         return view('show');
     }
     
-    public function show_income(Income $income)
+    public function show_income(Incomes $income)
     {
-        return view('show_income')->with(['incomes'->$income=>get()]);
+        return view('show_income')->with(['incomes' => $income->getPaginateByLimit()]);
     }
     
     public function show_expenditure()

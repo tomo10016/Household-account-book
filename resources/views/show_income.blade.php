@@ -11,12 +11,18 @@
        
     <body>
         <h3>収入</h3>
-        <div class="incomes">
+        <div class="income_list">
             @foreach ($incomes as $income)
                 <div class="income">
-                    <p class="year">{{ $income->year }}年</p>
+                    <p class="id">No.{{ $income->id}}</p>
+                    <p class="date">日付：{{ $income->year }}年{{ $income->month }}月{{ $income->day }}日</p>
+                    <p class="category">カテゴリー：{{ $income->category }}</p>
+                    <p class="money">金額：{{ $income->money }}円</p>
                 </div>
             @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $incomes->links() }}
         </div>
         <div class="back">[<a href="/show">戻る</a>]</div>
         <div class="backtop">[<a href="/">トップに戻る</a>]</div>

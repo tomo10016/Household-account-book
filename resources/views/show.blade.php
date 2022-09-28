@@ -18,6 +18,6 @@
         <div class="expenditure_show">
             <a href="/show/show_expenditure">支出</a>
         </div>
-        <div class="backtop">[<a href="/">トップに戻る</a>]</div>
+        <div class="backtop">[<a href="/">戻る</a>]</div>
     </body>
 </html>
