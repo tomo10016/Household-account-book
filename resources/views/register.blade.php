@@ -18,6 +18,6 @@
         <div class="register_expenditure">
             <a href="/register/register_expenditure">支出の記録</a>
         </div>
-        <div class="backtop">[<a href="/">トップに戻る</a>]</div>
+        <div class="backtop">[<a href="/">戻る</a>]</div>
     </body>
 </html>
