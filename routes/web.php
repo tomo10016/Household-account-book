@@ -14,6 +14,7 @@
 Route::get('/', "FinanceController@index");
 Route::get('/register', 'FinanceController@register');
 Route::get('/register/register_income', 'FinanceController@register_income');
+Route::post('/', 'FinanceController@store_income');
 Route::get('/register/register_expenditure', 'FinanceController@register_expenditure');
 Route::get('/show', 'FinanceController@show');
 Route::get('/show/show_income', 'FinanceController@show_income');
