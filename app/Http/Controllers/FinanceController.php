@@ -23,6 +23,13 @@ class FinanceController extends Controller
         return view('register_income');
     }
     
+    public function store_income(Request $request, Income $income)
+    {
+        $input = $request['income'];
+        $income->create($input);
+        return redirect('/show/show_income');
+    }
+    
     public function register_expenditure()
     {
         return view('register_expenditure');
