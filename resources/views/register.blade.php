@@ -11,12 +11,12 @@
     </head>
     
     <body>
-        <h3>家計簿の記録</h3>
+        <h3>家計簿を付ける</h3>
         <div class="register_income">
-            <a href="/register/register_income">収入の記録</a>
+            <a href="/register/register_income">収入</a>
         </div>
         <div class="register_expenditure">
-            <a href="/register/register_expenditure">支出の記録</a>
+            <a href="/register/register_expenditure">支出</a>
         </div>
         <div class="backtop">[<a href="/">戻る</a>]</div>
     </body>
