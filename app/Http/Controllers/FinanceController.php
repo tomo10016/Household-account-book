@@ -35,6 +35,13 @@ class FinanceController extends Controller
         return view('register_expenditure');
     }
     
+    public function store_expenditure(Request $request, Expenditure $expenditure)
+    {
+        $input = $request['expenditure'];
+        $expenditure->create($input);
+        return redirect('/show/show_expenditure');
+    }
+    
     public function show()
     {
         return view('show');
