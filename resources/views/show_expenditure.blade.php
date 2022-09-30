@@ -15,13 +15,13 @@
             @foreach ($expenditures as $expenditure)
                 <div class="expenditure">
                     <p class="id">No.{{ $expenditure->id }}</p>
-                    <p class="date">日付：{{ $expenditure->year }}年{{ $expenditure->month }}月{{ $expenditure->day }}日</p>
+                    <p class="date">日付：{{ $expenditure->date }}</p>
                     <p class="nominal">名目：{{ $expenditure->nominal }}</p>
-                    <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory }}</p>
-                    <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory }}</p>
+                    <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory_id }}</p>
+                    <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory_id }}</p>
                     <p class="money">金額：{{ $expenditure->money }}円</p>
                     <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
-                    <p class="method">支払方法：{{ $expenditure->method }}</p>
+                    <p class="method">支払方法：{{ $expenditure->method_id }}</p>
                 </div>
             @endforeach
         </div>

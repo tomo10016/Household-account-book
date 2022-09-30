@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Income extends Model
 {
     protected $fillable = [
-        'year', 'month', 'day', 'category', 'money',
+        'date', 'category_id', 'money',
         
     ];
     

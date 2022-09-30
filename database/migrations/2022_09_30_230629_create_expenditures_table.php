@@ -15,15 +15,13 @@ class CreateExpendituresTable extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('year')->unsigned();
-            $table->tinyInteger('month')->unsigned();
-            $table->tinyInteger('day')->unsigned();
+            $table->date('date');
             $table->string('nominal', 20);
-            $table->string('bigcategory', 20);
-            $table->string('smallcategory', 20);
+            $table->integer('bigcategory_id')->unsigned();
+            $table->integer('smallcategory_id')->unsigned();
             $table->bigInteger('money')->unsigned();
-            $table->string('shop', 20);
-            $table->string('method', 20);
+            $table->string('shop', 30);
+            $table->integer('method_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

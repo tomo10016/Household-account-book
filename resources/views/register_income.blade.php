@@ -12,15 +12,13 @@
             {{ csrf_field() }}
         <div class="date">
             <h3>日付</h3>
-            <input type="number" name="income[year]" placeholder="年">年
-            <input type ="number" name="income[month]" placeholder="月">月
-            <input type="number" name="income[day]" placeholder="日">日
+            <input type="date" name="income[date]">
         </div>
         <div class="category">
             <h3>カテゴリ</h3>
-            <label for="salary"><input type="checkbox" name="income[category]" value="給与・報酬">給与・報酬</label>
-            <label for="official"><input type="checkbox" name="income[category]" value="公的年金">公的年金</label>
-            <label for="private"><input type="checkbox" name="income[category]" value="私的年金">私的年金</label>
+            <label for="salary"><input type="checkbox" name="income[category_id]" value="1">給与・報酬</label>
+            <label for="official"><input type="checkbox" name="income[category_id]" value="2">公的年金</label>
+            <label for="private"><input type="checkbox" name="income[category_id]" value="3">私的年金</label>
         </div>
         <div class="price">
             <h3>金額</h3>
