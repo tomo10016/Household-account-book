@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Income;
 use App\Expenditure;
+use App\Http\Requests\IncomeRequest;
+use App\Http\Requests\ExpenditureRequest;
 use Illuminate\Http\Request;
 
 class FinanceController extends Controller
@@ -23,7 +25,7 @@ class FinanceController extends Controller
         return view('register_income');
     }
     
-    public function store_income(Request $request, Income $income)
+    public function store_income(IncomeRequest $request, Income $income)
     {
         $input = $request['income'];
         $income->create($input);
@@ -35,7 +37,7 @@ class FinanceController extends Controller
         return view('register_expenditure');
     }
     
-    public function store_expenditure(Request $request, Expenditure $expenditure)
+    public function store_expenditure(ExpenditureRequest $request, Expenditure $expenditure)
     {
         $input = $request['expenditure'];
         $expenditure->create($input);
