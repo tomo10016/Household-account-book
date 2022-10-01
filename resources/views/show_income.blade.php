@@ -18,6 +18,7 @@
                     <p class="date">日付：{{ $income->date }}</p>
                     <p class="category">カテゴリー：{{ $income->category_id }}</p>
                     <p class="money">金額：{{ $income->money }}円</p>
+                    <p class="edit"><a href="/incomes/{{ $income->id }}/edit">編集</a></p>
                 </div>
             @endforeach
         </div>
