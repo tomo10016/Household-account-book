@@ -54,10 +54,18 @@ class FinanceController extends Controller
         return view('show_income')->with(['incomes' => $income->getPaginateByLimit()]);
     }
     
+    public function edit_income(Income $income)
+    {
+        return view('edit_income')->with(['incomes' => $income]);
+    }
+    
     public function show_expenditure(Expenditure $expenditure)
     {
         return view('show_expenditure')->with(['expenditures' => $expenditure->getPaginateByLimit()]);
     }
     
-   
+    public function edit_expenditure(Expenditure $expenditure)
+    {
+        return view('edit_expenditure')->with(['expenditures' => $expenditure]);
+    }
 }
