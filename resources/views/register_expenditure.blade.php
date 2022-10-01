@@ -44,7 +44,7 @@
         </div>
         <div class="price">
             <h3>金額</h3>
-            <input type="number" step="1" name="expenditure[money] "placeholder="値段">円
+            <input type="number" step="1" name="expenditure[money] "placeholder="金額">円
         <div class="shop">
             <h3>購入店舗</h3>
             <input type="text" name="expenditure[shop]" placeholder="購入店舗">

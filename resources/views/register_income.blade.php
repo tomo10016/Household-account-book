@@ -12,17 +12,20 @@
             {{ csrf_field() }}
         <div class="date">
             <h3>日付</h3>
-            <input type="date" name="income[date]">
+            <input type="date" name="income[date]" value="{{ old('income.date') }}">
+            <p class="date_error" style="color:red">{{ $errors->first('income.date') }}</p>
         </div>
         <div class="category">
             <h3>カテゴリ</h3>
-            <label for="salary"><input type="checkbox" name="income[category_id]" value="1">給与・報酬</label>
+            <label for="salary"><input type="checkbox" name="income[category_id]" value="1"/>給与・報酬</label>
             <label for="official"><input type="checkbox" name="income[category_id]" value="2">公的年金</label>
             <label for="private"><input type="checkbox" name="income[category_id]" value="3">私的年金</label>
+            <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
         </div>
         <div class="price">
             <h3>金額</h3>
-            <input type="number" name="income[money]" placeholder="値段">円
+            <input type="number" name="income[money]" placeholder="値段" value="{{ old('income.money') }}">円
+            <p class="money_error" style="color:red">{{ $errors->first('income.money') }}</p>
         </div>
         <input type="submit" value="保存"/>
         <div class="back">[<a href="/register">戻る</a>]</div>
