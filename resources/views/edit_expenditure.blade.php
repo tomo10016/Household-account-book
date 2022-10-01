@@ -3,20 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registration of items to purchase</title>
+        <title>Edit expenditure</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <body/>
-        <h2>支出の登録</h2>
-        <form action="/expenditures" method="POST">
-                {{ csrf_field() }}
+    </head>
+    <body>
+        <h3>No.{{ $expenditure->id }}</h3>
+        <form action="/expenditures/{{ $expenditure->id }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('PUT') }}
             <div class="date">
                 <h3>日付</h3>
-                <input type="date" name="expenditure[date]">
+                <input type="date" name="expenditure[date]" value="{{ $expenditure->date }}">
             </div>
             <div class="items">
                 <h3>名目(財やサービス)</h3>
-                <input type="text" name="expenditure[nominal]" placeholder="名目"/>
+                <input type="text" name="expenditure[nominal]" placeholder="名目" value="{{ $expenditure->nominal }}"/>
             </div>
             <div class="category">
                 <h3>カテゴリ</h3>
@@ -44,10 +46,10 @@
             </div>
             <div class="price">
                 <h3>金額</h3>
-                <input type="number" step="1" name="expenditure[money] "placeholder="金額">円
+                <input type="number" step="1" name="expenditure[money] "placeholder="金額" value="{{ $expenditure->money }}">円
             <div class="shop">
                 <h3>購入店舗</h3>
-                <input type="text" name="expenditure[shop]" placeholder="購入店舗">
+                <input type="text" name="expenditure[shop]" placeholder="購入店舗" value="{{ $expenditure->shop }}">
             </div>
             <div class="method">
                 <h3>支払方法</h3>
@@ -55,9 +57,9 @@
                 <label for="credit"><input type="checkbox" name="expenditure[method_id]" value="2">クレジットカード</label>
                 <label for="smartphone"><input type="checkbox" name="expenditure[method_id]" value="3">スマホ決済</label>
             </div>
-            <input type="submit" value="保存"/>
+            <input type="submit" value="更新"/>
         </form>
-        <div class="back">[<a href="/register">戻る</a>]</div>
+        <div class="back">[<a href="/show/show_expenditure">戻る</a>]</div>
         <div class="backtop">[<a href="/">トップに戻る</a>]</div>
     </body>
 </html>

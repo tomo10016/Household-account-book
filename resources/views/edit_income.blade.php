@@ -3,33 +3,31 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registration of income</title>
+        <title>Edit Income</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <body/>
-        <h2>収入の登録</h2>
-        <form action="/incomes" method="POST">
-                {{ csrf_field() }}
+    <body>
+        <h3>No.{{ $income->id }}</h3>
+        <form action="/incomes/{{ $income->id }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('PUT') }}
             <div class="date">
                 <h3>日付</h3>
-                <input type="date" name="income[date]" value="{{ old('income.date') }}">
-                <p class="date_error" style="color:red">{{ $errors->first('income.date') }}</p>
+                <input type="date" name="income[date]" value="{{ $income->date }}">
             </div>
             <div class="category">
                 <h3>カテゴリ</h3>
                 <label for="salary"><input type="checkbox" name="income[category_id]" value="1"/>給与・報酬</label>
                 <label for="official"><input type="checkbox" name="income[category_id]" value="2">公的年金</label>
                 <label for="private"><input type="checkbox" name="income[category_id]" value="3">私的年金</label>
-                <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
             </div>
             <div class="price">
                 <h3>金額</h3>
-                <input type="number" name="income[money]" placeholder="値段" value="{{ old('income.money') }}">円
-                <p class="money_error" style="color:red">{{ $errors->first('income.money') }}</p>
+                <input type="number" name="income[money]" placeholder="値段" value="{{ $income->money }}">円
             </div>
-            <input type="submit" value="保存"/>
+            <input type="submit" value="更新">
         </form>
-        <div class="back">[<a href="/register">戻る</a>]</div>
+        <div class="back">[<a href="/show/show_income">戻る</a>]</div>
         <div class="back">[<a href="/">トップに戻る</a>]</div>
     </body>
 </html>

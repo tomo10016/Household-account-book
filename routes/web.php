@@ -19,6 +19,8 @@ Route::get('/register/register_expenditure', 'FinanceController@register_expendi
 Route::post('/expenditures', 'FinanceController@store_expenditure');
 Route::get('/show', 'FinanceController@show');
 Route::get('/show/show_income', 'FinanceController@show_income');
-Route::get('/incomes/{income}/edit_income', 'FinanceController@edit');
+Route::get('/incomes/{income}/edit_income', 'FinanceController@edit_income');
+Route::put('/incomes/{income}', 'FinanceController@update_income');
 Route::get('/show/show_expenditure', 'FinanceController@show_expenditure');
-Route::get('/expenditures/{expenditure}/edit_income', 'FinanceController@expenditure');
+Route::get('/expenditures/{expenditure}/edit_expenditure', 'FinanceController@edit_expenditure');
+Route::put('/expenditures/{expenditure}', 'FinanceController@update_expenditure');

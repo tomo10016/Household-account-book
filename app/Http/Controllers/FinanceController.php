@@ -56,7 +56,15 @@ class FinanceController extends Controller
     
     public function edit_income(Income $income)
     {
-        return view('edit_income')->with(['incomes' => $income]);
+        return view('edit_income')->with(['income' => $income]);
+    }
+    
+    public function update_income(IncomeRequest $request, Income $income)
+    {
+        $input_income = $request['income'];
+        $income->fill($input_income)->save();
+        
+        return redirect('/show/show_income');
     }
     
     public function show_expenditure(Expenditure $expenditure)
@@ -66,6 +74,14 @@ class FinanceController extends Controller
     
     public function edit_expenditure(Expenditure $expenditure)
     {
-        return view('edit_expenditure')->with(['expenditures' => $expenditure]);
+        return view('edit_expenditure')->with(['expenditure' => $expenditure]);
+    }
+    
+    public function update_expenditure(ExpenditureRequest $request, Expenditure $expenditure)
+    {
+        $input_expenditure = $request['expenditure'];
+        $expenditure->fill($input_expenditure)->save();
+        
+        return redirect('/show/show_expenditure');
     }
 }
