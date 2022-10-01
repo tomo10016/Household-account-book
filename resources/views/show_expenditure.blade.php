@@ -22,7 +22,7 @@
                     <p class="money">金額：{{ $expenditure->money }}円</p>
                     <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
                     <p class="method">支払方法：{{ $expenditure->method_id }}</p>
-                    <p class="edit"><a href="/expenditures/{{ $expenditure->id }}/edit">編集</a></p>
+                    <p class="edit"><a href="/expenditures/{{ $expenditure->id }}/edit_expenditure">編集</a></p>
                 </div>
             @endforeach
         </div>
