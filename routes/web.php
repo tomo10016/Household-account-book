@@ -21,6 +21,8 @@ Route::get('/show', 'FinanceController@show');
 Route::get('/show/show_income', 'FinanceController@show_income');
 Route::get('/incomes/{income}/edit_income', 'FinanceController@edit_income');
 Route::put('/incomes/{income}', 'FinanceController@update_income');
+Route::delete('/incomes/{income}/delete_income', 'FinanceController@delete_income');
 Route::get('/show/show_expenditure', 'FinanceController@show_expenditure');
 Route::get('/expenditures/{expenditure}/edit_expenditure', 'FinanceController@edit_expenditure');
 Route::put('/expenditures/{expenditure}', 'FinanceController@update_expenditure');
+Route::delete('/expenditures/{expenditure}/delete_expenditure', 'FinanceController@delete_expenditure');

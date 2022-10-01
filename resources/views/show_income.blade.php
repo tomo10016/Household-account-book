@@ -19,6 +19,11 @@
                     <p class="category">カテゴリー：{{ $income->category_id }}</p>
                     <p class="money">金額：{{ $income->money }}円</p>
                     <p class="edit"><a href="/incomes/{{ $income->id }}/edit_income">編集</a></p>
+                    <form action="/incomes/{{ $income->id }}/delete_income" id="form_{{ $income->id }}" method="post" style="display:inline">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit">削除</button>
+                    </form>
                 </div>
             @endforeach
         </div>

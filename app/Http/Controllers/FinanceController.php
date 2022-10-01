@@ -67,6 +67,12 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
+    public function delete_income(Income $income)
+    {
+        $income->delete();
+        return redirect('/show/show_income');
+    }
+    
     public function show_expenditure(Expenditure $expenditure)
     {
         return view('show_expenditure')->with(['expenditures' => $expenditure->getPaginateByLimit()]);
@@ -82,6 +88,12 @@ class FinanceController extends Controller
         $input_expenditure = $request['expenditure'];
         $expenditure->fill($input_expenditure)->save();
         
+        return redirect('/show/show_expenditure');
+    }
+    
+    public function delete_expenditure(Expenditure $expenditure)
+    {
+        $expenditure->delete();
         return redirect('/show/show_expenditure');
     }
 }
