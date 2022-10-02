@@ -16,6 +16,11 @@ class Expenditure extends Model
         return $this->belongsTo('App\BigCategory_expenditure');
     }
     
+    public function smallcategory()
+    {
+        return $this->belongsTo('App\SmallCategory_expenditure');  
+    }
+    
     public function getPaginateByLimit(int $limit_count = 5)
     {
         return $this->paginate($limit_count);

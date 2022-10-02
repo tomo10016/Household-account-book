@@ -31,7 +31,7 @@
             {{ $incomes->links() }}
         </div>
         <div class="register_income"><a href="/register/register_income">収入を記録する</a></div>
-        <div class="back">[<a href="/show">戻る</a>]</div>
-        <div class="backtop">[<a href="/">トップに戻る</a>]</div>
+        <div class="back"><a href="/show">戻る</a></div>
+        <div class="backtop"><a href="/">トップに戻る</a></div>
     </body>
 </html>

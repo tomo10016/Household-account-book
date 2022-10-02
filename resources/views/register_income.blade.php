@@ -19,8 +19,8 @@
                 <h3>カテゴリ</h3>
                 @foreach ($categories as $category)
                     <label for="category"><input type="checkbox" name="income[category_id]" value="{{ $category->id }}">{{ $category->name }}</label>
-                    <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
                 @endforeach
+                <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
             </div>
             <div class="price">
                 <h3>金額</h3>
@@ -29,7 +29,7 @@
             </div>
             <input type="submit" value="保存"/>
         </form>
-        <div class="back">[<a href="/register">戻る</a>]</div>
-        <div class="back">[<a href="/">トップに戻る</a>]</div>
+        <div class="back"><a href="/register">戻る</a></div>
+        <div class="back"><a href="/">トップに戻る</a></div>
     </body>
 </html>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\BigCategory_expenditure;
 use App\Category_income;
 use App\Expenditure;
 use App\Income;
+use App\BigCategory_expenditure;
+use App\SmallCategory_expenditure;
 use App\Http\Requests\IncomeRequest;
 use App\Http\Requests\ExpenditureRequest;
 use Illuminate\Http\Request;
@@ -34,9 +35,9 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
-    public function register_expenditure(Bigcategory_expenditure $bigcategory)
+    public function register_expenditure(Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory)
     {
-        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get()]);
+        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get()]);
     }
     
     public function store_expenditure(ExpenditureRequest $request, Expenditure $expenditure)
@@ -96,6 +97,7 @@ class FinanceController extends Controller
     public function delete_expenditure(Expenditure $expenditure)
     {
         $expenditure->delete();
+        
         return redirect('/show/show_expenditure');
     }
 }
