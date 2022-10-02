@@ -16,7 +16,7 @@
                 <div class="income">
                     <p class="id">No.{{ $income->id }}</p>
                     <p class="date">日付：{{ $income->date }}</p>
-                    <p class="category">カテゴリー：{{ $income->category_id }}</p>
+                    <p class="category">カテゴリー：{{ $income->category->name }}</p>
                     <p class="money">金額：{{ $income->money }}円</p>
                     <p class="edit"><a href="/incomes/{{ $income->id }}/edit_income">編集</a></p>
                     <form action="/incomes/{{ $income->id }}/delete_income" id="form_{{ $income->id }}" method="post" style="display:inline">
@@ -30,6 +30,7 @@
         <div class="paginate">
             {{ $incomes->links() }}
         </div>
+        <div class="register_income"><a href="/register/register_income">収入を記録する</a></div>
         <div class="back">[<a href="/show">戻る</a>]</div>
         <div class="backtop">[<a href="/">トップに戻る</a>]</div>
     </body>

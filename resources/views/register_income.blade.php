@@ -15,12 +15,12 @@
                 <input type="date" name="income[date]" value="{{ old('income.date') }}">
                 <p class="date_error" style="color:red">{{ $errors->first('income.date') }}</p>
             </div>
-            <div class="category">
+            <div class="categories">
                 <h3>カテゴリ</h3>
-                <label for="salary"><input type="checkbox" name="income[category_id]" value="1"/>給与・報酬</label>
-                <label for="official"><input type="checkbox" name="income[category_id]" value="2">公的年金</label>
-                <label for="private"><input type="checkbox" name="income[category_id]" value="3">私的年金</label>
-                <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
+                @foreach ($categories as $category)
+                    <label for="category"><input type="checkbox" name="income[category_id]" value="{{ $category->id }}">{{ $category->name }}</label>
+                    <p class="category_error" style="color:red">{{ $errors->first('income.category_id') }}</p>
+                @endforeach
             </div>
             <div class="price">
                 <h3>金額</h3>

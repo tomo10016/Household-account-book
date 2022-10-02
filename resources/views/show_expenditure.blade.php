@@ -17,7 +17,7 @@
                     <p class="id">No.{{ $expenditure->id }}</p>
                     <p class="date">日付：{{ $expenditure->date }}</p>
                     <p class="nominal">名目：{{ $expenditure->nominal }}</p>
-                    <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory_id }}</p>
+                    <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory->name }}</p>
                     <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory_id }}</p>
                     <p class="money">金額：{{ $expenditure->money }}円</p>
                     <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
