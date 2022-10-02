@@ -7,6 +7,7 @@ use App\Expenditure;
 use App\Income;
 use App\BigCategory_expenditure;
 use App\SmallCategory_expenditure;
+use App\PaymentMethod;
 use App\Http\Requests\IncomeRequest;
 use App\Http\Requests\ExpenditureRequest;
 use Illuminate\Http\Request;
@@ -35,9 +36,9 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
-    public function register_expenditure(Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory)
+    public function register_expenditure(Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory, PaymentMethod $method)
     {
-        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get()]);
+        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get(), 'methods' => $method->get()]);
     }
     
     public function store_expenditure(ExpenditureRequest $request, Expenditure $expenditure)

@@ -21,7 +21,7 @@
                     <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory->name }}</p>
                     <p class="money">金額：{{ $expenditure->money }}円</p>
                     <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
-                    <p class="method">支払方法：{{ $expenditure->method_id }}</p>
+                    <p class="method">支払方法：{{ $expenditure->method->name }}</p>
                     <p class="edit"><a href="/expenditures/{{ $expenditure->id }}/edit_expenditure">編集</a></p>
                     <form action="/expenditures/{{ $expenditure->id }}/delete_expenditure" id="form_{{ $expenditure->id }}" method="post" style="display:inline">
                         {{ csrf_field() }}
