@@ -18,28 +18,29 @@
                 <h3>名目(財やサービス)</h3>
                 <input type="text" name="expenditure[nominal]" placeholder="名目"/>
             </div>
-            <div class="category">
+            <div class="categories">
                 <h3>カテゴリ</h3>
-                <div class="fixed">
-                    <p><label for="fixed"><input type="checkbox" name="expenditure[bigcategory_id]" value="1">固定費</label></p>
-                        <label for="residence"><input type="checkbox" name="expenditure[smallcategory_id]" value="1">住居費</label>
-                        <label for="utility"><input type="checkbox" name="expenditure[smallcategory_id]" value="2">水道光熱費</label>
-                        <label for="communication"><input type="checkbox" name="expenditure[smallcategory_id]" value="3">通信費</label>
-                        <label for="insurance"><input type="checkbox" name="expenditure[smallcategory_id]" value="4">保険料</label>
+                <div class="bigcategories">
+                    @foreach ($bigcategories as $bigcategory)
+                        <label for="bigcategory"><input type="checkbox" name="expenditure[bigcategory_id]" value="{{ $bigcategory->id}}">{{ $bigcategory->name }}</label>
+                    @endforeach
                 </div>
-                <div class="variable">
-                    <p><label for="variable"><input type="checkbox" name="expenditure[bigcategory_id]" value="2">変動費</label></p>
-                        <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="5">食費</label>
-                        <label for="daily"><input type="checkbox" name="expenditure[smallcategory_id]" value="6">日用品費</label>
-                        <label for="clothes"><input type="checkbox" name="expenditure[smallcategory_id]" value="7">被服費</label>
-                        <label for="beauty"><input type="checkbox" name="expenditure[smallcategory_id]" value="8">美容費</label>
-                        <label for="entertainment"><input type="checkbox" name="expenditure[smallcategory_id]" value="9">交際費</label>
-                        <label for="hobby"><input type="checkbox" name="expenditure[smallcategory_id]" value="10">趣味費</label>
-                        <label for="transportation"><input type="checkbox" name="expenditure[smallcategory_id]" value="11">交通費</label>
-                        <label for="education"><input type="checkbox" name="expenditure[smallcategory_id]" value="12">教育費</label>
-                        <label for="medica"><input type="checkbox" name="expenditure[smallcategory_id]" value="13">医療費</label>
-                        <label for="special"><input type="checkbox" name="expenditure[smallcategory_id]" value="14">特別費</label>
-                        <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="15">雑費</label>
+                <div class="smallcategories">
+                    <label for="residence"><input type="checkbox" name="expenditure[smallcategory_id]" value="1">住居費</label>
+                    <label for="utility"><input type="checkbox" name="expenditure[smallcategory_id]" value="2">水道光熱費</label>
+                    <label for="communication"><input type="checkbox" name="expenditure[smallcategory_id]" value="3">通信費</label>
+                    <label for="insurance"><input type="checkbox" name="expenditure[smallcategory_id]" value="4">保険料</label>
+                    <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="5">食費</label>
+                    <label for="daily"><input type="checkbox" name="expenditure[smallcategory_id]" value="6">日用品費</label>
+                    <label for="clothes"><input type="checkbox" name="expenditure[smallcategory_id]" value="7">被服費</label>
+                    <label for="beauty"><input type="checkbox" name="expenditure[smallcategory_id]" value="8">美容費</label>
+                    <label for="entertainment"><input type="checkbox" name="expenditure[smallcategory_id]" value="9">交際費</label>
+                    <label for="hobby"><input type="checkbox" name="expenditure[smallcategory_id]" value="10">趣味費</label>
+                    <label for="transportation"><input type="checkbox" name="expenditure[smallcategory_id]" value="11">交通費</label>
+                    <label for="education"><input type="checkbox" name="expenditure[smallcategory_id]" value="12">教育費</label>
+                    <label for="medica"><input type="checkbox" name="expenditure[smallcategory_id]" value="13">医療費</label>
+                    <label for="special"><input type="checkbox" name="expenditure[smallcategory_id]" value="14">特別費</label>
+                    <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="15">雑費</label>
                 </div>
             </div>
             <div class="price">

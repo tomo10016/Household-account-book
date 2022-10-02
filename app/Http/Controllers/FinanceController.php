@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Income;
+use App\BigCategory_expenditure;
+use App\Category_income;
 use App\Expenditure;
+use App\Income;
 use App\Http\Requests\IncomeRequest;
 use App\Http\Requests\ExpenditureRequest;
 use Illuminate\Http\Request;
@@ -20,9 +22,9 @@ class FinanceController extends Controller
         return view('register');
     }
     
-    public function register_income()
+    public function register_income(Category_income $category)
     {
-        return view('register_income');
+        return view('register_income')->with(['categories' => $category->get()]);
     }
     
     public function store_income(IncomeRequest $request, Income $income)
@@ -32,9 +34,9 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
-    public function register_expenditure()
+    public function register_expenditure(Bigcategory_expenditure $bigcategory)
     {
-        return view('register_expenditure');
+        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get()]);
     }
     
     public function store_expenditure(ExpenditureRequest $request, Expenditure $expenditure)
@@ -54,9 +56,9 @@ class FinanceController extends Controller
         return view('show_income')->with(['incomes' => $income->getPaginateByLimit()]);
     }
     
-    public function edit_income(Income $income)
+    public function edit_income(Income $income, Category_income $category)
     {
-        return view('edit_income')->with(['income' => $income]);
+        return view('edit_income')->with(['income' => $income, 'categories' => $category->get()]);
     }
     
     public function update_income(IncomeRequest $request, Income $income)
