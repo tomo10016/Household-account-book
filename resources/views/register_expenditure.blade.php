@@ -44,11 +44,11 @@
                 <input type="text" name="expenditure[shop]" placeholder="購入店舗" value={{ old('expenditure.shop') }}>
                 <p class="shop_error" style="color:red">{{ $errors->first('expenditure.shop') }}</p>
             </div>
-            <div class="method">
+            <div class="methods">
                 <h3>支払方法</h3>
-                <label for="cash"><input type="checkbox" name="expenditure[method_id]" value="1">現金</label>
-                <label for="credit"><input type="checkbox" name="expenditure[method_id]" value="2">クレジットカード</label>
-                <label for="smartphone"><input type="checkbox" name="expenditure[method_id]" value="3">スマホ決済</label>
+                @foreach ($methods as $method)
+                    <label for="method"><input type="checkbox" name="expenditure[method_id]" value="{{ $method->id}}">{{ $method->name }}</label>
+                @endforeach
                 <p class="method_error" style="color:red">{{ $errors->first('expenditure.method.id') }}</p>
             </div>
             <input type="submit" value="保存"/>
