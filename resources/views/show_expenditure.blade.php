@@ -18,7 +18,7 @@
                     <p class="date">日付：{{ $expenditure->date }}</p>
                     <p class="nominal">名目：{{ $expenditure->nominal }}</p>
                     <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory->name }}</p>
-                    <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory_id }}</p>
+                    <p class="smallcategory">小カテゴリ：{{ $expenditure->smallcategory->name }}</p>
                     <p class="money">金額：{{ $expenditure->money }}円</p>
                     <p class="shop">購入店舗：{{ $expenditure->shop }}</p>
                     <p class="method">支払方法：{{ $expenditure->method_id }}</p>
@@ -34,7 +34,8 @@
         <div class="paginate">
             {{ $expenditures->links() }}
         </div>
-        <div class="back">[<a href="/show">戻る</a>]</div>
-        <div class="backtop">[<a href="/">トップに戻る</a>]</div>
+        <div class="register_exoenditure"><a href="/register/register_expenditure">支出を記録する</a></div>
+        <div class="back"><a href="/show">戻る</a></div>
+        <div class="backtop"><a href="/">トップに戻る</a></div>
     </body>
 </html>
