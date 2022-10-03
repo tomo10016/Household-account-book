@@ -28,6 +28,6 @@ class Expenditure extends Model
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->paginate($limit_count);
+        return $this->orderBy('date', 'ASC')->paginate($limit_count);
     }
 }
