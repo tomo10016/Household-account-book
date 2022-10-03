@@ -26,3 +26,6 @@ Route::get('/show/show_expenditure', 'FinanceController@show_expenditure');
 Route::get('/expenditures/{expenditure}/edit_expenditure', 'FinanceController@edit_expenditure');
 Route::put('/expenditures/{expenditure}', 'FinanceController@update_expenditure');
 Route::delete('/expenditures/{expenditure}/delete_expenditure', 'FinanceController@delete_expenditure');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

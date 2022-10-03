@@ -17,8 +17,8 @@ class Income extends Model
         return $this->belongsTo('App\Category_income');
     }
     
-    public function getPaginateByLimit(int $limit_count = 5)
+   public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->paginate($limit_count);
+        return $this->orderBy('date', 'ASC')->paginate($limit_count);
     }
 }

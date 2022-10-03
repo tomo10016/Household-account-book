@@ -14,7 +14,6 @@
         <div class='expenditure_list'>
             @foreach ($expenditures as $expenditure)
                 <div class="expenditure">
-                    <p class="id">No.{{ $expenditure->id }}</p>
                     <p class="date">日付：{{ $expenditure->date }}</p>
                     <p class="nominal">名目：{{ $expenditure->nominal }}</p>
                     <p class="bigcategory">大カテゴリ：{{ $expenditure->bigcategory->name }}</p>

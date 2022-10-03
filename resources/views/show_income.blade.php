@@ -14,7 +14,6 @@
         <div class="income_list">
             @foreach ($incomes as $income)
                 <div class="income">
-                    <p class="id">No.{{ $income->id }}</p>
                     <p class="date">日付：{{ $income->date }}</p>
                     <p class="category">カテゴリー：{{ $income->category->name }}</p>
                     <p class="money">金額：{{ $income->money }}円</p>
