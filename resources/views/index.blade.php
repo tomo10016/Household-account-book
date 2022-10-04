@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -9,13 +12,14 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
-    <body/>
+    <body>
         <h2>家計簿</h2>
-        <div class="register">
-            <a href="/register">家計簿を付ける</a>
+        <div class="record">
+            <a href="/record">家計簿を付ける</a>
         </div>
         <div class="show">
             <a href="/show">家計簿を見る</a>
         </div>
     </body>
 </html>
+@endsection

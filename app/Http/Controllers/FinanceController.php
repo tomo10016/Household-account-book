@@ -19,14 +19,14 @@ class FinanceController extends Controller
         return view('index');
     }
     
-     public function register()
+     public function record()
     {
-        return view('register');
+        return view('record');
     }
     
-    public function register_income(Category_income $category)
+    public function record_income(Category_income $category)
     {
-        return view('register_income')->with(['categories' => $category->get()]);
+        return view('record_income')->with(['categories' => $category->get()]);
     }
     
     public function store_income(IncomeRequest $request, Income $income)
@@ -36,9 +36,9 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
-    public function register_expenditure(Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory, PaymentMethod $method)
+    public function record_expenditure(Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory, PaymentMethod $method)
     {
-        return view('register_expenditure')->with(['bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get(), 'methods' => $method->get()]);
+        return view('record_expenditure')->with(['bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get(), 'methods' => $method->get()]);
     }
     
     public function store_expenditure(ExpenditureRequest $request, Expenditure $expenditure)
