@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -12,12 +15,13 @@
     
     <body>
         <h3>家計簿を付ける</h3>
-        <div class="register_income">
-            <a href="/register/register_income">収入</a>
+        <div class="record_income">
+            <a href="/record/record_income">収入</a>
         </div>
-        <div class="register_expenditure">
-            <a href="/register/register_expenditure">支出</a>
+        <div class="record_expenditure">
+            <a href="/record/record_expenditure">支出</a>
         </div>
         <div class="backtop"><a href="/">戻る</a></div>
     </body>
 </html>
+@endsection
