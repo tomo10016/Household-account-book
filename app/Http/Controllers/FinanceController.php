@@ -101,4 +101,9 @@ class FinanceController extends Controller
         
         return redirect('/show/show_expenditure');
     }
+    
+    public function breakdown_expenditure()
+    {
+        return  view('breakdown/breakdown_expenditure');
+    }
 }
