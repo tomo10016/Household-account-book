@@ -19,6 +19,8 @@
             var ctx = getElementId('chart').getContext('2d');
             var BreakdownChart = new Chart(ctx, {
                 type: 'pie',
+                data: {
+                
             });
         </script>
     </body>

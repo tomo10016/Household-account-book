@@ -42,9 +42,9 @@
                         <label for="hobby"><input type="checkbox" name="expenditure[smallcategory_id]" value="10">趣味費</label>
                         <label for="transportation"><input type="checkbox" name="expenditure[smallcategory_id]" value="11">交通費</label>
                         <label for="education"><input type="checkbox" name="expenditure[smallcategory_id]" value="12">教育費</label>
-                        <label for="medica"><input type="checkbox" name="expenditure[smallcategory_id]" value="13">医療費</label>
+                        <label for="medical"><input type="checkbox" name="expenditure[smallcategory_id]" value="13">医療費</label>
                         <label for="special"><input type="checkbox" name="expenditure[smallcategory_id]" value="14">特別費</label>
-                        <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="15">雑費</label>
+                        <label for="miscellaneous"><input type="checkbox" name="expenditure[smallcategory_id]" value="15">雑費</label>
                 </div>
             </div>
             <div class="price">
