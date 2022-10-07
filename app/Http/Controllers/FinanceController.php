@@ -102,31 +102,8 @@ class FinanceController extends Controller
         return redirect('/show/show_expenditure');
     }
     
-    public function breakdown_expenditure(Expenditure $expenditure)
+    public function breakdown_expenditure()
     {
-        //bigcategory
-        var $sum_fixed = 0;
-        var $sum_variable = 0;
-        
-        //smallcategory
-        var $sum_residence = 0;
-        var $sum_utility = 0;
-        var $sum_communication = 0;
-        var $sum_insurance =0;
-        var $sum_food = 0;
-        var $sum_daily = 0;
-        var $sum_clothes = 0;
-        var $sum_beauty = 0;
-        var $entertainment = 0;
-        var $sum_hobby = 0;
-        var $sum_transportation = 0;
-        var $sum_education = 0;
-        var $sum_medical = 0;
-        var $sum_special = 0;
-        var $sum_miscellaneous = 0;
-        
-        
-        
-        
+        return view('/breakdown/breakdown_expenditure');
     }
 }
