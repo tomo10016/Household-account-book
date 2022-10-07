@@ -20,6 +20,9 @@
         <div class="show">
             <a href="/show">家計簿を見る</a>
         </div>
+        <div class="practice">
+            <a href="/practice">円グラフ</a>
+        </div>
     </body>
 </html>
 @endsection
