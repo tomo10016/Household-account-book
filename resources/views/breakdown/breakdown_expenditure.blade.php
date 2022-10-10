@@ -11,8 +11,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@5.0.8"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     </head>
+    
     <body>
         <h2>支出の内訳</h2>
         <div id="app" class="container p-3">
@@ -21,49 +25,83 @@
                     <canvas id="BreakdownExpenditureChart" width="50" height="50"></canvas>
             </div>
         </div>
+        
         <script>
             new Vue ({
                 el: '#app',
-                data:
-            })
-            window.onload = function () {
-                const ctx = document.getElementById('BreakdownExpenditureChart').getContext('2d');
-                const BreakdownExpenditureChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
+                data: {
+                    sum: [],
+                    year: '{{ date('Y') }}',
+                    years: [],
+                    chart: null
+                },
+                methods: {
+                    getYears() {
+                        fetch('/ajax/expenditures/years')
+                            .then(response => response.json())
+                            .then(date => this.years = data);
                     },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                    getExpenditures() {
+                        fetch('/ajax/expenditures/years =' + this.year)
+                        .then(response => response.json())
+                        .then(data => {
+                            if(this.chart) {
+                                this.chart.destroy();
                             }
-                        }
+                            
+                            const SmallCategoryExpenditures = _.groupBy(data, 'smllcategory_id');
+                            const sum = _.map(SmallCategoryExpenditures, SmallExpenditures => {
+                                return _.sumBy(SmallExpenditures, 'sum');
+                            });
+                            const SmallCategory = _.keys(SmallCategoryExpenditures);
+                            
+                            const ctx = document.getElementById('BreakdownExpenditureChart').getContext('2d');
+                            const this.chart = new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    datasets [{
+                                    data: sum,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                        ]
+                                    }],
+                                    labels: SmallCategory
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        fontSize: 45,
+                                        text: '子カテゴリ統計'
+                                    },
+                                    tooltips: {
+                                        callbacks: {
+                                            label(tooltipItem, data) {
+                                                const datasetIndex = tooltipItem.datasetIndex;
+                                                const index = tooltipIem.index;
+                                                const sum = data.datasets[datasetIndex].data[index];
+                                                const sumText = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                                                const smallcategory = data.labels[index];
+                                                return '' + smallcategory + ' ' sumText + ' 円';
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        )};
                     }
-                });
-            }
+                },
+                mounted() {
+                    this.getYear();
+                    this.getExpenditures();
+                }
+            });
         </script>
+        
     </body>
 </html>
 @endsection
