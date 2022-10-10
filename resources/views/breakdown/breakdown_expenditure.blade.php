@@ -20,15 +20,23 @@
     <body>
         <h2>支出の内訳</h2>
         <div id="app" class="container p-3">
-            <div class="col-md-6">
-                <canvas id="chart"></canvas>
+            <div class = "row">
+                <div class="col-md-6">
                     <canvas id="BreakdownExpenditureChart" width="50" height="50"></canvas>
+                    
+                    <div class = "form-group">
+                        <label>年間支出</label>
+                        <select class="form-control" v-model="year">
+                            <option v-for="year in years" value="year">@{{ year }}年</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         
         <script>
             new Vue ({
-                el: '#app',
+                el: "#app",
                 data: {
                     sum: [],
                     year: '{{ date('Y') }}',
@@ -39,10 +47,10 @@
                     getYears() {
                         fetch('/ajax/expenditures/years')
                             .then(response => response.json())
-                            .then(date => this.years = data);
+                            .then(data => this.years = data);
                     },
                     getExpenditures() {
-                        fetch('/ajax/expenditures/years =' + this.year)
+                        fetch('/ajax/expenditures?years =' + this.year)
                         .then(response => response.json())
                         .then(data => {
                             if(this.chart) {
