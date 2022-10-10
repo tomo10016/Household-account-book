@@ -10,14 +10,14 @@ class FinanceController extends Controller
 {
     public function index(Request $request)
     {
-        return Expenditure::select('smallcategory_id', 'money')
+        return \App\Expenditure::select('smallcategory_id', 'money')
             ->where('date', $request->date)
             ->get();
     }
     
     public function years()
     {
-        return Expenditure::select(\DB::raw('DATE_PART(\'YEAR\', date) AS YEAR'))
+        return \App\Expenditure::select(\DB::raw('DATE_PART(\'YEAR\', date) AS YEAR'))
             ->where('date', '<=', 'now()')
             ->orderBy('date', 'desc')
             ->pluck('year', 'year');
