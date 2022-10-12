@@ -11,17 +11,13 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        
-        <script src="https://cdn.jsdelivr.net/npm/vue@5.0.8"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     </head>
     
     <body>
         <h2>支出の内訳</h2>
         <div id="app" class="container p-3">
             <div class = "row">
-                <div class="col-md-6">
+                <div class="col-md-6">  
                     <canvas id="BreakdownExpenditureChart" width="50" height="50"></canvas>
                     
                     <div class = "form-group">
@@ -33,6 +29,10 @@
                 </div>
             </div>
         </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
         
         <script>
             new Vue ({
@@ -110,6 +110,7 @@
             });
         </script>
         
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
 @endsection
