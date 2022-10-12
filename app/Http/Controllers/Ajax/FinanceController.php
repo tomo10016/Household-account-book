@@ -17,9 +17,18 @@ class FinanceController extends Controller
     
     public function years()
     {
+        return \App\Expenditure::select('date')
+            ->groupBy('date')
+            ->pluck('date');
+    }
+    
+    /*
+    public function years()
+    {
         return \App\Expenditure::select(\DB::raw('DATE_PART(\'YEAR\', date) AS YEAR'))
             ->where('date', '<=', 'now()')
             ->orderBy('date', 'desc')
             ->pluck('year', 'year');
     }
+    */
 }
