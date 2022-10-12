@@ -15,8 +15,39 @@
     </head>
     
     <body>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        
         <script>
-            new Vue
+            new Vue ({
+                el: '#app',
+                data: {
+                    sum_price: [],
+                    years: [],
+                    chart: null
+                },
+                methods: {
+                    getYears() {
+                        fetch('/ajax/expenditures/years')
+                            .then(response => response.json())
+                            .then(data => this.years = data);
+                    },
+                    getExpenditures() {
+                        fetch('/ajax/expenditures/year=' + this.year)
+                            .then(response => response.json())
+                            .then(data => {
+                                if(this.chart) {
+                                    this.chart.destroy():
+                                }
+                                
+                                const smallPrices = _.groupBy(data, 'smallcategory');
+                                const sum_price = _.maop(smallPrices, smallcategoryPrices => {
+                                    return _.sumBy(smallcategoryPrices, 'money');
+                                });
+                                const SmallCategory = _.keys(smallPrices);
+                                
+                                const ctx = document.getElementById('chart').getContect('2d')
+                                )
+            })
         </script>
     </body>
 </html>
