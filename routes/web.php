@@ -13,9 +13,9 @@
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'FinanceController@index');
-    Route::get('/breakdown/breakdown_expenditure', 'FinanceController@breakdown_expenditure');
-    Route::get('/ajax/expenditures', 'Ajax\FinanceController@index');
-    ROute::get('/ajax/expenditures/years', 'Ajax\FinanceController@years');
+    Route::get('/breakdown/breakdown_expenditure', 'ExpenditureGoogleGraph@index');
+    //Route::get('/ajax/expenditures', 'Ajax\FinanceController@index');
+    //Route::get('/ajax/expenditures/years', 'Ajax\FinanceController@years');
     Route::get('/record', 'FinanceController@record');
     Route::get('/record/record_income', 'FinanceController@record_income');
     Route::post('/incomes', 'FinanceController@store_income');
