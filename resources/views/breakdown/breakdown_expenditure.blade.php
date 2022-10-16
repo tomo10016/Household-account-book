@@ -24,7 +24,7 @@
         </style>
         
         <script type="text/javascript">
-            var analytics = <?php echo $smallcategory_id; ?>
+            var analytics = <?php echo $smallcategory; ?>
             
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
