@@ -35,7 +35,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/Chart.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash.js@4.17.21/dist/lodash.min.js"></script>
         
-        <script>
+        <script type=text/javascript>
             new Vue ({
                 el: '#app',
                 data: {

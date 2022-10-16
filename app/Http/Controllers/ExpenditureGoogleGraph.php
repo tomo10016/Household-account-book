@@ -8,9 +8,10 @@ use DB;
 
 class ExpenditureGoogleGraph extends Controller
 {
-    public function index()
+    public function index(Expenditure $expenditure)
     {
-        $data = Expenditure::select('smallcategory_id', 'money')
+        $data = Expenditure::select('smallcategory_id')
+                ->selectRaw('SUM(money) As total_money')
                 ->groupBy('smallcategory_id')
                 ->get();
         /*
@@ -24,9 +25,9 @@ class ExpenditureGoogleGraph extends Controller
         
         $array[] = ['SmallCategory', 'Money'];
         
-        foreach ($data as $key => $smallcategory)
+        foreach ($data as $key => $value)
         {
-            $array[++$key] = [$smallcategory->smallcategory->name, $smallcategory->money];
+            $array[++$key] = [$value->smallcategory->name, $value->total_money];
         }
         
         return view('/breakdown/breakdown_expenditure')->with('smallcategory', json_encode($array));
