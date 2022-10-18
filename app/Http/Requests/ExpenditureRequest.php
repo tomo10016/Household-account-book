@@ -19,7 +19,7 @@ class ExpenditureRequest extends FormRequest
             'expenditure.bigcategory_id' => 'required',
             'expenditure.smallcategory_id' => 'required',
             'expenditure.money' => 'required|numeric',
-            'expenditure.shop' => 'required|max:30',
+            'expenditure.payer' => 'required|max:30',
             'expenditure.method_id'=> 'required',
         ];
     }

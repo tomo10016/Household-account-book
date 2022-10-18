@@ -11,8 +11,8 @@ class ExpenditureGoogleGraph extends Controller
     public function index(Expenditure $expenditure)
     {
         $data = Expenditure::select('smallcategory_id')
-                ->selectRaw('SUM(money) As total_money')
                 ->groupBy('smallcategory_id')
+                ->sum('money')
                 ->get();
         /*
         $data = DB::table('expenditures')
@@ -27,7 +27,7 @@ class ExpenditureGoogleGraph extends Controller
         
         foreach ($data as $key => $value)
         {
-            $array[++$key] = [$value->smallcategory->name, $value->total_money];
+            $array[++$key] = [$value->smallcategory->name, $value->money];
         }
         
         return view('/breakdown/breakdown_expenditure')->with('smallcategory', json_encode($array));

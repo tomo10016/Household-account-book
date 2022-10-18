@@ -25,40 +25,31 @@
             </div>
             <div class="category">
                 <h3>カテゴリ</h3>
-                <div class="fixed">
-                    <p><label for="fixed"><input type="checkbox" name="expenditure[bigcategory_id]" value="1">固定費</label></p>
-                        <label for="residence"><input type="checkbox" name="expenditure[smallcategory_id]" value="1">住居費</label>
-                        <label for="utility"><input type="checkbox" name="expenditure[smallcategory_id]" value="2">水道光熱費</label>
-                        <label for="communication"><input type="checkbox" name="expenditure[smallcategory_id]" value="3">通信費</label>
-                        <label for="insurance"><input type="checkbox" name="expenditure[smallcategory_id]" value="4">保険料</label>
+               <div class="bigcategories">
+                    @foreach ($bigcategories as $bigcategory)
+                        <label for="bigcategory"><input type="checkbox" name="expenditure[bigcategory_id]" value="{{ $bigcategory->id }}">{{ $bigcategory->name }}</label>
+                    @endforeach
+                    <p class="bigcategory_error" style="color:red">{{ $errors->first('expenditure.bigcategory_id') }}</p>
                 </div>
-                <div class="variable">
-                    <p><label for="variable"><input type="checkbox" name="expenditure[bigcategory_id]" value="2">変動費</label></p>
-                        <label for="food"><input type="checkbox" name="expenditure[smallcategory_id]" value="5">食費</label>
-                        <label for="daily"><input type="checkbox" name="expenditure[smallcategory_id]" value="6">日用品費</label>
-                        <label for="clothes"><input type="checkbox" name="expenditure[smallcategory_id]" value="7">被服費</label>
-                        <label for="beauty"><input type="checkbox" name="expenditure[smallcategory_id]" value="8">美容費</label>
-                        <label for="entertainment"><input type="checkbox" name="expenditure[smallcategory_id]" value="9">交際費</label>
-                        <label for="hobby"><input type="checkbox" name="expenditure[smallcategory_id]" value="10">趣味費</label>
-                        <label for="transportation"><input type="checkbox" name="expenditure[smallcategory_id]" value="11">交通費</label>
-                        <label for="education"><input type="checkbox" name="expenditure[smallcategory_id]" value="12">教育費</label>
-                        <label for="medical"><input type="checkbox" name="expenditure[smallcategory_id]" value="13">医療費</label>
-                        <label for="special"><input type="checkbox" name="expenditure[smallcategory_id]" value="14">特別費</label>
-                        <label for="miscellaneous"><input type="checkbox" name="expenditure[smallcategory_id]" value="15">雑費</label>
+                <div class="smallcategories">
+                    @foreach ($smallcategories as $smallcategory)
+                        <label for="smallcategory"><input type="checkbox" name="expenditure[smallcategory_id]" value="{{ $smallcategory->id }}">{{ $smallcategory->name }}</label>
+                    @endforeach
+                    <p class="smallcategory_error" style="color:red">{{ $errors->first('expenditure.smallcategory_id') }}</p>
                 </div>
             </div>
             <div class="price">
                 <h3>金額</h3>
                 <input type="number" step="1" name="expenditure[money] "placeholder="金額" value="{{ $expenditure->money }}">円
             <div class="shop">
-                <h3>購入店舗</h3>
-                <input type="text" name="expenditure[shop]" placeholder="購入店舗" value="{{ $expenditure->shop }}">
+                <h3>支払い相手</h3>
+                <input type="text" name="expenditure[payer]" placeholder="支払い相手" value="{{ $expenditure->payer }}">
             </div>
             <div class="method">
                 <h3>支払方法</h3>
-                <label for="cash"><input type="checkbox" name="expenditure[method_id]" value="1">現金</label>
-                <label for="credit"><input type="checkbox" name="expenditure[method_id]" value="2">クレジットカード</label>
-                <label for="smartphone"><input type="checkbox" name="expenditure[method_id]" value="3">スマホ決済</label>
+                @foreach ($methods as $method)
+                    <label for="method"><input type="checkbox" name="expenditure[method_id]" value="{{ $method->id}}">{{ $method->name }}</label>
+                @endforeach
             </div>
             <input type="submit" value="更新"/>
         </form>

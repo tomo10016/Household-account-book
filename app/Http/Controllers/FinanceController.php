@@ -77,14 +77,14 @@ class FinanceController extends Controller
         return redirect('/show/show_income');
     }
     
-    public function show_expenditure(Expenditure $expenditure)
+    public function show_expenditure(Expenditure $expenditure, Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory, PaymentMethod $method)
     {
-        return view('show_expenditure')->with(['expenditures' => $expenditure->getPaginateByLimit()]);
+        return view('show_expenditure')->with(['expenditures' => $expenditure->getPaginateByLimit(), 'bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get(), 'methods' => $method->get()]);
     }
     
-    public function edit_expenditure(Expenditure $expenditure)
+    public function edit_expenditure(Expenditure $expenditure, Bigcategory_expenditure $bigcategory, Smallcategory_expenditure $smallcategory, PaymentMethod $method)
     {
-        return view('edit_expenditure')->with(['expenditure' => $expenditure]);
+        return view('edit_expenditure')->with(['expenditure' => $expenditure, 'bigcategories' => $bigcategory->get(), 'smallcategories' => $smallcategory->get(), 'methods' => $method->get()]);
     }
     
     public function update_expenditure(ExpenditureRequest $request, Expenditure $expenditure)

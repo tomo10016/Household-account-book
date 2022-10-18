@@ -14,13 +14,13 @@ class CreateExpendituresTable extends Migration
     public function up()
     {
         Schema::create('expenditures', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->date('date');
             $table->string('nominal', 20);
             $table->integer('bigcategory_id')->unsigned();
             $table->integer('smallcategory_id')->unsigned();
             $table->bigInteger('money')->unsigned();
-            $table->string('shop', 30);
+            $table->string('payer', 30);
             $table->integer('method_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
