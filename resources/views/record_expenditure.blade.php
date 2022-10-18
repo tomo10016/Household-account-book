@@ -43,14 +43,14 @@
                 <input type="number" step="1" name="expenditure[money] "placeholder="金額" value={{ old('expenditure.money') }}>円
                 <p class="price_error" style="color:red">{{ $errors->first('expenditure.money') }}</p>
             <div class="shop">
-                <h3>購入店舗</h3>
-                <input type="text" name="expenditure[shop]" placeholder="購入店舗" value={{ old('expenditure.shop') }}>
-                <p class="shop_error" style="color:red">{{ $errors->first('expenditure.shop') }}</p>
+                <h3>支払い相手</h3>
+                <input type="text" name="expenditure[payer]" placeholder="支払い相手" value={{ old('expenditure.payer') }}>
+                <p class="payer_error" style="color:red">{{ $errors->first('expenditure.payer') }}</p>
             </div>
             <div class="methods">
                 <h3>支払方法</h3>
                 @foreach ($methods as $method)
-                    <label for="method"><input type="checkbox" name="expenditure[method_id]" value="{{ $method->id}}">{{ $method->name }}</label>
+                    <label for="method"><input type="checkbox" name="expenditure[method_id]" value="{{ $method->id }}">{{ $method->name }}</label>
                 @endforeach
                 <p class="method_error" style="color:red">{{ $errors->first('expenditure.method.id') }}</p>
             </div>

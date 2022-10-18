@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Expenditure extends Model
 {
     protected $fillable = [
-        'date', 'nominal', 'bigcategory_id', 'smallcategory_id', 'money', 'shop', 'method_id',
+        'date', 'nominal', 'bigcategory_id', 'smallcategory_id', 'money', 'payer', 'method_id',
         
     ];
     
