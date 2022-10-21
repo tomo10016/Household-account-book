@@ -12,7 +12,6 @@ class ExpenditureGoogleGraph extends Controller
     {
         $data = Expenditure::select('smallcategory_id')
                 ->groupBy('smallcategory_id')
-                ->sum('money')
                 ->get();
         /*
         $data = DB::table('expenditures')
