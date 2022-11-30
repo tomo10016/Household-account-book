@@ -1,2 +1,2 @@
-# SecondApplication
-This repository is My Second Application only.
+# Household-account-book
+This repository is My Household-account-book only.
