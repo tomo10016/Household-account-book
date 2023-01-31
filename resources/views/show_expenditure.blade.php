@@ -36,7 +36,7 @@
         <div class="paginate">
             {{ $expenditures->links() }}
         </div>
-        <div class="register_exoenditure"><a href="/register/register_expenditure">支出を記録する</a></div>
+        <div class="register_exoenditure"><a href="/record/record_expenditure">支出を記録する</a></div>
         <div class="back"><a href="/show">戻る</a></div>
         <div class="backtop"><a href="/">トップに戻る</a></div>
     </body>
